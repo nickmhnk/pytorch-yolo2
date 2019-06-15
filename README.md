@@ -3,7 +3,7 @@
 make things work with python3
 
 ### TODO:
-`get_region_boxes` takes 5-10 more time than predict. FIX IT
+`get_region_boxes` is 5-10 times slower than predict. FIX IT
 
 ---
 
