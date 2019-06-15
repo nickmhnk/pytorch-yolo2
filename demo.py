@@ -1,5 +1,7 @@
 from utils import *
 from darknet import Darknet
+
+import time
 import cv2
 
 def demo(cfgfile, weightfile):
@@ -28,9 +30,15 @@ def demo(cfgfile, weightfile):
     while True:
         res, img = cap.read()
         if res:
+            print("\n\n")
             sized = cv2.resize(img, (m.width, m.height))
-            bboxes = do_detect(m, sized, 0.5, 0.4, use_cuda)
-            print('------')
+            start_time = time.time()
+            bboxes = do_detect(m, sized, 0.25, 0.4, use_cuda)
+            print('detected {} objects'.format(len(bboxes)))
+            elapsed_time = time.time() - start_time
+            print("Elapsed time {:.2f} ms".format(elapsed_time * 1000))
+
+            print("FPS {:.2f} ms".format(1/ elapsed_time))
             draw_img = plot_boxes_cv2(img, bboxes, None, class_names)
             cv2.imshow(cfgfile, draw_img)
             cv2.waitKey(1)
