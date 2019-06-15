@@ -1,3 +1,17 @@
+## Modifications
+
+make things work with python3
+
+### TODO:
+`get_region_boxes` takes 5-10 more time than predict. FIX IT
+
+---
+
+
+
+
+
+
 ### pytorch-yolo2
 Convert https://pjreddie.com/darknet/yolo/ into pytorch. This repository is trying to achieve the following goals.
 - [x] implement RegionLoss, MaxPoolStride1, Reorg, GolbalAvgPool2d
